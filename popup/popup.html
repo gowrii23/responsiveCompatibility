@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsiveness</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Responsiveness</h1>
+      <p>Mobile on the left, tablet on the right — same session, independent scroll.</p>
+    </header>
+
+    <form id="open-form">
+      <label for="url">Page to test</label>
+      <input id="url" name="url" type="url" placeholder="https://" spellcheck="false" />
+      <div class="row">
+        <button type="submit" class="primary">Open tester</button>
+        <button type="button" id="current">This tab</button>
+      </div>
+    </form>
+
+    <p class="error" id="error" hidden></p>
+
+    <section id="recent-wrap" hidden>
+      <h2>Recent</h2>
+      <ul id="recent"></ul>
+    </section>
+
+    <footer>
+      <button type="button" id="options">Settings</button>
+    </footer>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
