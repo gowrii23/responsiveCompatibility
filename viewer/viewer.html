@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsiveness</title>
+    <link rel="stylesheet" href="viewer.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">responsiveness</span>
+      </div>
+      <form class="url-form" id="url-form" autocomplete="off">
+        <label class="sr-only" for="url-input">Page URL</label>
+        <input
+          id="url-input"
+          name="url"
+          type="url"
+          spellcheck="false"
+          placeholder="https://example.com"
+        />
+        <button type="submit" class="btn btn-light">Load</button>
+      </form>
+      <div class="header-actions">
+        <button type="button" class="btn btn-light" id="reload-both" title="Reload both viewports">
+          Reload
+        </button>
+        <button type="button" class="btn btn-light" id="open-windows" title="Open two real browser windows">
+          Dual windows
+        </button>
+      </div>
+    </header>
+
+    <section class="permission-banner" id="permission-banner" hidden>
+      <p>
+        Chrome needs access to this site so it can render inside the tester. Access is
+        requested only for the URL you load.
+      </p>
+      <button type="button" class="btn btn-accent" id="grant-access">Allow this site</button>
+    </section>
+
+    <main class="panes">
+      <section class="pane" data-pane="left">
+        <div class="pane-toolbar">
+          <label>
+            <span class="sr-only">Left device</span>
+            <select id="left-device"></select>
+          </label>
+          <label>
+            <span class="sr-only">Left orientation</span>
+            <select id="left-orientation">
+              <option value="portrait">Portrait</option>
+              <option value="landscape">Landscape</option>
+            </select>
+          </label>
+          <div class="custom-size" id="left-custom" hidden>
+            <input id="left-width" type="number" min="240" max="2560" aria-label="Left width" />
+            <span>×</span>
+            <input id="left-height" type="number" min="240" max="2560" aria-label="Left height" />
+          </div>
+          <p class="pane-meta" id="left-meta"></p>
+        </div>
+        <div class="stage" id="left-stage">
+          <div class="device" id="left-device-frame">
+            <iframe
+              id="left-frame"
+              title="Mobile viewport"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen"
+            ></iframe>
+            <div class="frame-overlay" id="left-overlay" hidden></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pane" data-pane="right">
+        <div class="pane-toolbar">
+          <label>
+            <span class="sr-only">Right device</span>
+            <select id="right-device"></select>
+          </label>
+          <label>
+            <span class="sr-only">Right orientation</span>
+            <select id="right-orientation">
+              <option value="portrait">Portrait</option>
+              <option value="landscape" selected>Landscape</option>
+            </select>
+          </label>
+          <div class="custom-size" id="right-custom" hidden>
+            <input id="right-width" type="number" min="240" max="2560" aria-label="Right width" />
+            <span>×</span>
+            <input id="right-height" type="number" min="240" max="2560" aria-label="Right height" />
+          </div>
+          <p class="pane-meta" id="right-meta"></p>
+        </div>
+        <div class="stage" id="right-stage">
+          <div class="device tablet" id="right-device-frame">
+            <iframe
+              id="right-frame"
+              title="Tablet viewport"
+              referrerpolicy="no-referrer-when-downgrade"
+              allow="fullscreen"
+            ></iframe>
+            <div class="frame-overlay" id="right-overlay" hidden></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      Live views rendered at each device width using the same browser session. Scroll and
+      interact with each frame independently. If a frame stays blank, the site blocks
+      embedding (X-Frame-Options / CSP frame-ancestors). Use
+      <strong>Allow this site</strong> or <strong>Dual windows</strong>.
+    </footer>
+
+    <script src="viewer.js" type="module"></script>
+  </body>
+</html>

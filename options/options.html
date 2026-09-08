@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Responsiveness settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <h1>Settings</h1>
+    <p>
+      Host access is requested per site when you open the tester. You can also grant
+      all sites if you test many domains.
+    </p>
+
+    <label class="row">
+      <input type="checkbox" id="all-sites" />
+      <span>Allow access to all websites (optional)</span>
+    </label>
+
+    <p class="hint" id="status"></p>
+    <p>
+      Shortcut: <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd> opens the tester for the
+      current tab. Change it in <strong>chrome://extensions/shortcuts</strong>.
+    </p>
+    <script src="options.js" type="module"></script>
+  </body>
+</html>

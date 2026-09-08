@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive lab</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: "Segoe UI", system-ui, sans-serif;
+      }
+      body {
+        margin: 0;
+        background: #f7f7f5;
+        color: #1b1b1b;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 12px 20px;
+        background: #111;
+        color: #fff;
+      }
+      nav {
+        display: none;
+        gap: 16px;
+      }
+      .menu {
+        display: block;
+        background: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding: 6px 10px;
+      }
+      .banner {
+        background: #f7d046;
+        padding: 10px 20px;
+        font-weight: 700;
+      }
+      .step {
+        padding: 12px 20px;
+        background: #fff;
+        border-bottom: 1px solid #e6e6e6;
+      }
+      h1 {
+        margin: 16px 20px 8px;
+        font-size: 1.6rem;
+      }
+      .filters {
+        display: flex;
+        gap: 8px;
+        overflow: auto;
+        padding: 0 20px 12px;
+      }
+      .filters span {
+        border: 1px solid #ccc;
+        border-radius: 999px;
+        padding: 6px 12px;
+        white-space: nowrap;
+        background: #fff;
+      }
+      .layout {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 0 20px 40px;
+      }
+      aside {
+        display: none;
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        padding: 16px;
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      article {
+        background: #fff;
+        border: 1px solid #e6e6e6;
+        padding: 16px;
+        min-height: 140px;
+      }
+      .hint {
+        margin: 0 20px 16px;
+        padding: 8px 12px;
+        background: #e3f2fd;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      @media (min-width: 768px) {
+        .menu {
+          display: none;
+        }
+        nav {
+          display: flex;
+        }
+        .layout {
+          grid-template-columns: 220px 1fr;
+        }
+        aside {
+          display: block;
+        }
+        .cards {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hint::after {
+          content: " Tablet/desktop layout: sidebar + multi-column cards.";
+        }
+      }
+      @media (max-width: 767px) {
+        .hint::after {
+          content: " Mobile layout: hamburger menu + single-column cards.";
+        }
+      }
+      @media (min-width: 1100px) {
+        .cards {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <strong>Lab Store</strong>
+      <button class="menu" type="button">Menu</button>
+      <nav>
+        <span>Mobile</span>
+        <span>Internet</span>
+        <span>Solutions</span>
+        <span>Insights</span>
+      </nav>
+    </header>
+    <div class="banner">Business smartphones — test viewport</div>
+    <div class="step">Step 1 of 4 · Select device</div>
+    <h1>Choose a smartphone</h1>
+    <p class="hint" id="layout-hint">Current breakpoint:</p>
+    <div class="filters">
+      <span>All</span>
+      <span>Free</span>
+      <span>Apple</span>
+      <span>Samsung</span>
+      <span>Google</span>
+    </div>
+    <div class="layout">
+      <aside>
+        <strong>Sort and filter</strong>
+        <p>Brand, storage, and price filters appear beside results on tablet widths.</p>
+      </aside>
+      <div class="cards">
+        <article><strong>Pixel 9 Pro</strong><p>From $0.99/mo</p></article>
+        <article><strong>iPhone 16</strong><p>From $13.99/mo</p></article>
+        <article><strong>Galaxy S25</strong><p>From $9.99/mo</p></article>
+        <article><strong>Pixel 9</strong><p>From $0.00/mo</p></article>
+      </div>
+    </div>
+  </body>
+</html>
